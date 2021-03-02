@@ -2,25 +2,12 @@
 downloads: ~/.ansible-downloads/
 
 configure_dotfiles: true
-configure_terminal: true
 configure_osx: true
 
-configure_sudoers: false
-sudoers_custom_config: ''
-# Example:
-# sudoers_custom_config: |
-#   # Allow users in admin group to use sudo with no password.
-#   %admin ALL=(ALL) NOPASSWD: ALL
-
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
-dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
-dotfiles_files:
-  - .zshrc
-  - .gitignore
-  - .inputrc
-  - .osx
-  - .vimrc
+configure_sudoers: true
+sudoers_custom_config: |
+  # Allow users in admin group to use sudo with no password.
+  %admin ALL=(ALL) NOPASSWD: ALL
 
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
@@ -28,46 +15,39 @@ homebrew_installed_packages:
   - bash-completion
   - doxygen
   - gettext
-  - gifsicle
   - git
-  - github/gh/gh
+  - git-lfs
   - go
   - gpg
   - httpie
-  - iperf
   - libevent
   - sqlite
   - mcrypt
-  - nmap
   - node
   - nvm
   - php
+  - rbenv
   - ssh-copy-id
   - cowsay
   - readline
   - openssl
-  - pv
   - wget
-  - wrk
 
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
+  - isen-ng/dotnet-sdk-versions
+  - AdoptOpenJDK/openjdk
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - chromedriver
   - docker
-  - dropbox
-  - firefox
   - google-chrome
-  - handbrake
-  - licecap
-  - sequel-pro
-  - slack
-  - sublime-text
-  - transmit
   - vagrant
+  - dotnet-sdk
+  - dotnet-sdk-2.2.400
+  - adoptopenjdk8
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
@@ -83,7 +63,9 @@ composer_packages: []
 # - name: drush
 #   state: present # present/absent, default: present
 #   version: "^8.1" # default: N/A
-gem_packages: []
+gem_packages:
+ - name: xcode-install
+   state: present
 # - name: bundler
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A
