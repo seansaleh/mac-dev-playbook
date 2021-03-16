@@ -46,7 +46,7 @@ homebrew_cask_apps:
   - google-chrome
   - vagrant
   # - dotnet-sdk # Already installed in github CI machines
-  - dotnet-sdk-2-2-400
+  # - dotnet-sdk-2-2-400 # TODO: Figure this out later
   - adoptopenjdk8
 
 # See `geerlingguy.mas` role documentation for usage instructions.
