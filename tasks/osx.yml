@@ -3,9 +3,7 @@
   copy:
     src: files/.osx
     dest: "~/.osx"
-    owner: foo
-    group: foo
-    mode: "0644"
+    mode: "0744"
   become: false
 - name: Run .osx dotfiles.
   command: "~/.osx"
