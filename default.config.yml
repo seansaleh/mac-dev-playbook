@@ -1,5 +1,5 @@
 ---
-user_for_ansible: {{ ansible_user | default(lookup('env', 'USER'), True) }}
+user_for_ansible: "{{ ansible_user | default(lookup('env', 'USER'), True) }}"
 
 configure_dotfiles: true
 configure_osx: true
