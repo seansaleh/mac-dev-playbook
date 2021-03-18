@@ -1,11 +1,16 @@
 ---
+- name: Get details on the ansible_user
+  user:
+    user: "{{ ansible_user }}"
+    state: present
+  register: ansible_user_registered
 - name: Copy .osx dotfile
   copy:
     src: files/.osx
-    dest: "~/.osx"
+    dest: "{{ ansible_user_registered.home }}/.osx"
     mode: "0744"
   become: false
 - name: Run .osx dotfiles.
-  command: "~/.osx"
+  command: "{{ ansible_user_registered.home }}/.osx"
   become: true
   changed_when: false
