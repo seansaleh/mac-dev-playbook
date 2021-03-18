@@ -1,7 +1,7 @@
 ---
 - name: Get details on the ansible_user
   user:
-    user: "{{ ansible_user }}"
+    user: "{{ user_for_ansible }}"
     state: present
   register: ansible_user_registered
 - name: Copy .osx dotfile
